@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in </title>
+
+    <!--Used by Facebook, Pinterest, Google -->
+    <meta property="og:title" content="Log In">
+    <meta property="og:url" content="https://www.borinati.com/login">
+    <meta property="og:image" content="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg">
+    <meta property="og:site_name" content="Borinati">
+    <meta property="og:description" content="Borinati is a place to ask questions based on Science And Social Science.">
+
+    <!--Used exclusively by Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Log In">
+    <meta name="twitter:url" content="https://www.borinati.com/login">
+    <meta name="description" content="Borinati is a place to ask questions based on science And Social Science.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" 
+    href="https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/286283908_111367944934856_7702637904057720739_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE3TBlF_wtQ4ky1RNTBddHk_4zWFdP1333_jNYV0_Xffb8oSspbRwn0EniQxG-uis7Bp-HxqtHvEBAV2xxpYx4L&_nc_ohc=3ouYM5xCkiYAX_ztPgT&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&oh=00_AT9LL2LTeJ4ZcETXNrg0CNTNvqerdTLwvCYV3Hla9IrSeg&oe=62A83358">
+    <!--Bootstrap Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+</head>
+<style>
+    @media (min-width: 992px) {
+  .navbar-nav li {
+    margin-left: 5px;
+  }
+}
+
+  .navbar-nav li {
+    margin-bottom: 5px;
+  }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-body">
+        <div class="container">
+            <a class="navbar-brand" href="">
+                <h3>Borinati</h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="btn btn-primary shadow-sm" aria-current="page" 
+                    href="{% url 'Home' %}">Home</a></li>
+                    <li class="nav-item"><a class="btn btn-primary shadow-sm" 
+                        href="{% url 'About' %}">About</a></li>
+                    <li class="nav-item"><a class="btn btn-primary shadow-sm" 
+                        href="{% url 'FeedBack' %}">Contact</a></li> 
+                        <li class="nav-item"><a class="btn btn-primary shadow-sm" 
+                            href="{% url 'register' %}">Sign Up</a></li>  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container p-10 ">
+        <div class="form-container">
+          <div class="row justify-content-center align-content-center">
+            <div class="col p-5">
+              <br>
+                <h1 class="text-primary">Borinati</h1>
+                <h2 class="blockquote">A platform that allow user to ask question or answer other people
+                question based on science and social science.
+                </h2>
+                <br>
+            </div>
+              <div class="col-md-6">
+                <br>
+                <br>
+                  <div class="card p-5 shadow-lg bg-body">
+                  <br>
+                  <h2 class="text-center text-primary">Sign In</h2>
+                  <div class="text-center text-danger">
+                    {% for message in messages %}
+                    <h5>{{ message }}</h5>
+                    {% endfor %}
+                    <br>
+                    </div>
+                  <form method="POST" action="{% url 'login' %}">
+                      {% csrf_token %}
+                      <div class="form-group">
+                          <label class="text-primary text-dark font-weight-bold">Enter Username</label>
+                          <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                      </div>
+    
+                      <br>
+                      <div class="form-group">
+                          <label class="text-primary text-dark font-weight-bold">Enter Password</label>
+                          <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                      </div>
+                                        <br>
+                      <div class="form-check">
+                      <label class="form-check-label" for="exampleCheck1">New To Borinati?
+                        <a href="{% url 'register' %}">Sign Up</a>
+                        <br>
+                      </label>
+                     </div>
+
+                      <br>
+                      <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                  </form>
+              </div>
+              </div> 
+                           
+          </div>
+          <br>
+       </div>
+    </div>    
+    <br>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

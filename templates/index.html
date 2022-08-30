@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="d-flex flex-column h-100">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!--Used by Facebook, Pinterest, Google -->
+    <meta property="og:title" content="Questions">
+    <meta property="og:url" content="https://www.borinati.com/index">
+    <meta property="og:image" content="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg">
+    <meta property="og:site_name" content="Borinati">
+    <meta property="og:description" content="Borinati is a place to ask question based on Science And Social Science.">
+
+    <!--Used exclusively by Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Questions">
+    <meta name="twitter:url" content="https://www.borinati.com/index">
+    <meta name="description" content="Borinati is a place to ask questions based on Science And Social Science.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+    <link rel="shortcut icon" sizes="32x32" type="image/jpg" href="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg"/>
+    <link rel="shortcut icon" sizes="16x16" type="image/jpg" href="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg"/>
+</head>
+<style>
+    @media (min-width: 992px) {
+  .navbar-nav li {
+    margin-left: 5px;
+  }
+}
+
+  .navbar-nav li {
+    margin-bottom: 5px;
+  }
+</style>
+<body>
+    {% if request.user.is_authenticated %}
+    <div class="container">
+        <br>
+        <a href="{% url 'question' %}" class="btn btn-primary shadow-sm">Ask Question</a>
+    </div>
+    <br>
+    <br>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a href="{% url 'notification' %}" class="nav-link btn btn-primary text-light">Notifications
+                {% if unread_notifications %}
+                <span class="badge bg-secondary">{{unread_notifications}}</span>
+                {% endif %}
+            </a>
+        </li>
+        <br>
+        <li class="nav-item">
+            <a class="nav-link btn btn-primary text-light" href="{% url 'Profile' user.id %}">Profile</a>
+          </li>
+      </ul>
+{% endif %}
+  
+      <br>
+    <div class="container">
+        <div class="row justify-content-center">
+          <form action="" method="GET">
+            <input placeholder="Search By Category" type="text" class="form-control" name="q">
+        </form>
+       </div>
+      </div> 
+      <br>
+        
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for question in list_of_question reversed %}
+            <div class="col-md-4">
+                <div class="card my-3">
+                    <div class="card-header shadow-sm bg-body">
+                    <a href="{% url 'Public_Profile' question.user.profile.slug %}">
+                        {{question.user.username}}
+                    </a>
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'view-Question' question.slug %}" style="text-decoration: none;">
+                        {{question.title}}
+                        </a>
+                        <br>
+                        <br>
+                        <p class="btn btn-primary disabled btn-sm">{{question.category}}</h5>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
