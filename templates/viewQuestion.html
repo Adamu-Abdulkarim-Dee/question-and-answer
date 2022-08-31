@@ -106,12 +106,8 @@
                 <a href="{% url 'answer' pk=question.pk %}" class="btn btn-primary">Post Your Answer</a>
                 {% else %}
                 <div class="text-center">
-                    <a href="{% url 'login' %}" class="btn btn-primary">LogIn To Post Your Answer</a>
+                    <a href="{% url 'register' %}" class="btn btn-primary">Log In To Post Your Answer</a>
                     <br>
-                    <br>
-                    <h3>Borinati is a place to ask questions based on Science and Social Science.
-                        Users can ask questions or answer other people questions.
-                    </h3>
                 </div>
                 {% endif %}
             </div>
