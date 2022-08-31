@@ -49,9 +49,9 @@
                     <li class="nav-item"><a class="btn btn-primary shadow-sm" aria-current="page" 
                     href="{% url 'Home' %}">Home</a></li>
                     <li class="nav-item"><a class="btn btn-primary shadow-sm" 
-                        href="{% url 'About' %}">About Us</a></li>
+                        href="{% url 'About' %}">About</a></li>
                     <li class="nav-item"><a class="btn btn-primary shadow-sm" 
-                        href="{% url 'FeedBack' %}">Contact Us</a></li> 
+                        href="{% url 'FeedBack' %}">Contact</a></li> 
                         <li class="nav-item"><a class="btn btn-primary shadow-sm" 
                             href="{% url 'login' %}">log in</a></li>  
                 </ul>
@@ -62,16 +62,9 @@
     <div class="container p-10">
         <div class="form-container">
           <div class="row justify-content-center align-content-center">
-            <div class="col p-5">
-                <h1 class="text-primary">Borinati</h1>
-                <h2>A platform that allow user to ask question or answer other people
-                question based on science and social science.
-                </h2>
-                <br>
-            </div>
               <div class="col-md-6">
                   <div class="card p-5 shadow-lg bg-body">
-                    <h2 class="text-center text-primary">Sign Up</h2>
+                    <h2 class="text-center text-primary">Sign up for free</h2>
                     <br>
                     <div class="text-center text-danger">
                         {% for message in messages %}
