@@ -200,6 +200,4 @@ EMAIL_PORT = 425
 EMAIL_HOST_USER = 'drivemetech@gmail.com'
 EMAIL_HOST_PASSWORD = 'Di**022302'
 
-print(EMAIL_HOST_PASSWORD, '....')
-
 
