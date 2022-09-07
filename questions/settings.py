@@ -192,12 +192,4 @@ cloudinary.config(
   api_secret = "1Cq8jwxGUEHolx5f6wJVqwqNTiM" 
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 425
-EMAIL_HOST_USER = 'drivemetech@gmail.com'
-EMAIL_HOST_PASSWORD = 'Di**022302'
-
 
