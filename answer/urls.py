@@ -19,4 +19,6 @@ urlpatterns = [
     path('Terms-Of-Use/', views.terms_of_service, name='Terms'),
     path('index', views.questions_for_non, name='Views_for'),
     path('thanks-page', views.thanks, name='Thanks'),
+    path('menu/', views.menu, name='Menu'),
+    path("logout", views.logout_request, name="logout"),
 ]

@@ -22,43 +22,54 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
     crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="shortcut icon" sizes="32x32" type="image/jpg" href="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg"/>
     <link rel="shortcut icon" sizes="16x16" type="image/jpg" href="https://res.cloudinary.com/drivemetech/image/upload/v1655308776/ygnvjkbw8tzeqaxhuwxl.jpg"/>
 </head>
 <style>
-    @media (min-width: 992px) {
-  .navbar-nav li {
-    margin-left: 5px;
-  }
+  .row .col {
+  gap: 20px; /* Change this to your desired space */
 }
 
-  .navbar-nav li {
-    margin-bottom: 5px;
-  }
+.row .col a{
+  display: inline-block;
+}
+
+.row .col .material-icons{
+  font-size: 40px;
+}
 </style>
 <body>
-    {% if request.user.is_authenticated %}
     <div class="container">
         <br>
         <a href="{% url 'question' %}" class="btn btn-primary shadow-sm">Ask Question</a>
     </div>
     <br>
-    <br>
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a href="{% url 'notification' %}" class="nav-link btn btn-primary text-light">Notifications
-                {% if unread_notifications %}
-                <span class="badge bg-secondary">{{unread_notifications}}</span>
-                {% endif %}
-            </a>
-        </li>
-        <br>
-        <li class="nav-item">
-            <a class="nav-link btn btn-primary text-light" href="{% url 'Profile' user.id %}">Profile</a>
-          </li>
-      </ul>
-{% endif %}
-  
+    <div class="container">
+        <div class="row">
+
+            <div class="col d-flex justify-content-center">
+                <div class="card shadow-sm bg-body">
+                    <div class="card-body">
+                        <a href="{% url 'notification' %}" style="text-decoration: none;">
+                            <span class="material-icons">notifications</span>
+                            {% if unread_notifications %}
+                            <span class="badge bg-secondary">{{unread_notifications}}</span>
+                            {% endif %}
+                        </a>
+                        <a href="{% url 'Profile' user.id %}">
+                            <span class="material-icons">person</span>
+                        </a>
+        
+                        <a href="{% url 'Menu'%}">
+                            <span class="material-icons">logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
       <br>
     <div class="container">
         <div class="row justify-content-center">

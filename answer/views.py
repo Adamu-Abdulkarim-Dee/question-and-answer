@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Count
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import logout
 
 
 
@@ -141,6 +142,14 @@ class FeedbackPost(CreateView):
 def thanks(request):
 
     return render(request, 'thanks.html')
+
+def menu(request):
+
+    return render(request, 'menu.html')
+
+def logout_request(request):
+    logout(request)
+    return redirect("login")
 
 def about(request):
     users = User.objects.all().count()
