@@ -191,5 +191,7 @@ cloudinary.config(
   api_key = "322562957573349", 
   api_secret = "1Cq8jwxGUEHolx5f6wJVqwqNTiM" 
 )
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://question-and-answer-apps.herokuapp.com'
+]
 
